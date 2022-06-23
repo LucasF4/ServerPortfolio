@@ -1,0 +1,18 @@
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+
+
+	<script src="https://kit.fontawesome.com/16544f2866.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	
+	<script>	
+		const sr = ScrollReveal({
+			origin: 'top',
+			distance: '80px',
+			duration: 2000,
+			reset: true
+		});
+
+		sr.reveal('.info p',{});
+		sr.reveal('.info h1',{delay: 400});
+		sr.reveal('.imagem-head',{delay: 800});
+	</script><!-- Efeito de aparecer deslizando aos poucos-->
