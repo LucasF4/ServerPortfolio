@@ -2,3 +2,4 @@ node_modules/
 config/
 public/imagem/questão da prova.png
 public/imagem/bg2.jpg
+.env
