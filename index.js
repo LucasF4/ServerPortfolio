@@ -28,6 +28,10 @@ app.get('/download', (req, res) => {
     }
 })
 
+app.use(function(req, res, next){
+    res.status(400).render('../view/404', { url: req.url })
+})
+
 app.listen(port, () => {
     console.log(`SERVIDOR RODANDO NA PORTA: ${port}`)
 })
