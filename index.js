@@ -1,14 +1,9 @@
 const express = require('express');
-const authorize = require('./authorized_middleware');
+//const authorize = require('./authorized_middleware');
 const app = express();
 const port = process.env.PORT || 8080;
 
 require('dotenv').config();
-
-app.use(function(req, res, next){
-    res.setHeader("authorization", process.env.SECRET)
-    next()
-})
 
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
