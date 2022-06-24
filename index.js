@@ -3,6 +3,13 @@ const authorize = require('./authorized_middleware');
 const app = express();
 const port = process.env.PORT || 8080;
 
+require('dotenv').config();
+
+app.use(function(req, res, next){
+    res.setHeader("authorization", process.env.SECRET)
+    next()
+})
+
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/imagem', express.static(__dirname + 'public/imagem'))
@@ -15,8 +22,15 @@ app.get('/', (req, res) => {
 
 //Adicionando rota com verificação de middleware se a aplicação tem permissão em acessar os dados retornados da API
 
-app.get('/dados', authorize(), (req,res) => {
-    res.json({teste: "teste1234"});
+app.get('/download', (req, res) => {
+    try{
+        const file = `${__dirname}/public/upload_cv/Curriculo_Lucas_Felix (2).pdf`;
+        res.download(file);
+        console.log('Donwload realizado com sucesso!')
+    }catch(e){
+        res.status(401).send("Something Went Wrong!")
+        console.log(e);
+    }
 })
 
 app.listen(port, () => {
