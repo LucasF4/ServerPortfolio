@@ -16,7 +16,6 @@
 		console.log(lecation);
 		if(location.protocol != 'https:'){
 			const httpsURL = 'https://' + location.href.split('//')[1]
-			console.log(httpsURL)
 			location.replace(httpsURL)
 		}
 	</script>
