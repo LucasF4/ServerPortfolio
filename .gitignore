@@ -1,0 +1,5 @@
+node_modules/
+public/imagem/questão da prova.png
+public/imagem/bg2.jpg
+.env
+view/observacoes/*.txt
